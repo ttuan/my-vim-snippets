@@ -2,3 +2,17 @@ snippet bd
 	binding.pry
 snippet pr
 	require "pry"
+snippet ser
+	# frozen_string_literal: true
+
+	class ${1:class_name}
+
+		def initialize ${2:args}
+		end
+
+		def execute
+		end
+
+		private
+		attr_reader ${3:attr}
+	end
