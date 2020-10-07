@@ -16,3 +16,25 @@ snippet ser
 		private
 		attr_reader ${3:attr}
 	end
+
+snippet benchmark
+	require "benchmark/ips"
+
+	class TestBench
+		def fast
+			${1}
+		end
+
+		def slow
+			${2}
+		end
+	end
+
+	test = TestBench.new
+
+	Benchmark.ips do |x|
+		x.report("faster") { test.fast }
+		x.report("slower") { test.slow }
+		x.compare!
+	end
+
